@@ -14,7 +14,7 @@ module.exports = {
     const channel = interaction.options.getChannel('روم');
 
     const embed = new EmbedBuilder()
-      .setDescription(rules.join('\n'))
+      .setDescription(rules.filter(r => r).join('\n'))
       .setColor(COLOR);
 
     if (channel) {
