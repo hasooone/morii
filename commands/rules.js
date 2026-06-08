@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
-const COLOR = 0x0099FF;
+const COLOR = 0xFFD700; // ذهبي
 
 module.exports = {
   data: new SlashCommandBuilder()
