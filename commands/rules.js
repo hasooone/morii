@@ -14,7 +14,8 @@ module.exports = {
     const channel = interaction.options.getChannel('روم');
 
     const embed = new EmbedBuilder()
-      .setDescription(rules.filter(r => r).join('\n'))
+      .setTitle('📜 قوانين السيرفر')
+      .setDescription(rules.filter(r => r).slice(1).join('\n'))
       .setColor(COLOR);
 
     if (channel) {
