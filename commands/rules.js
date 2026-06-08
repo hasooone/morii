@@ -14,8 +14,15 @@ module.exports = {
     const channel = interaction.options.getChannel('روم');
 
     const embed = new EmbedBuilder()
-      .setDescription(rules.filter(r => r).join('\n'))
       .setColor(COLOR);
+
+    const items = rules.filter(r => r);
+    embed.setDescription(items[0]);
+
+    for (let i = 1; i < items.length; i++) {
+      const [title, ...rest] = items[i].replace(/\*\*/g, '').split(' : ');
+      embed.addFields({ name: title, value: rest.join(' : ') });
+    }
 
     if (channel) {
       await channel.send({ embeds: [embed] });
