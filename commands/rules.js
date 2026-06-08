@@ -1,5 +1,7 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const rules = require('../rules.json');
+
+const COLOR = 0xFFD700;
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -10,13 +12,16 @@ module.exports = {
         .setDescription('الروم اللي تبعت فيه (اختياري)')),
   async execute(interaction) {
     const channel = interaction.options.getChannel('روم');
-    const text = rules.filter(r => r).join('\n');
+
+    const embed = new EmbedBuilder()
+      .setDescription(rules.filter(r => r).join('\n'))
+      .setColor(COLOR);
 
     if (channel) {
-      await channel.send(text);
+      await channel.send({ embeds: [embed] });
       await interaction.reply({ content: '✅ تم إرسال القوانين', ephemeral: true });
     } else {
-      await interaction.reply(text);
+      await interaction.reply({ embeds: [embed] });
     }
   },
 };
