@@ -18,6 +18,7 @@ module.exports = {
     const channel = interaction.options.getChannel('روم');
 
     const embed = new EmbedBuilder()
+      .setTitle('📜 قوانين السيرفر')
       .setDescription(text)
       .setColor(COLOR);
 
