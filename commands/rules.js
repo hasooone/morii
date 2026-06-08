@@ -1,24 +1,20 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+const rules = require('../rules.json');
 
-const COLOR = 0xFFD700; // ذهبي
+const COLOR = 0xFFD700;
 
 module.exports = {
   data: new SlashCommandBuilder()
     .setName('rules')
-    .setDescription('يبعت القوانين في إطار مرتب')
-    .addStringOption(option =>
-      option.setName('القوانين')
-        .setDescription('اكتب القوانين هنا')
-        .setRequired(true))
+    .setDescription('يعرض قوانين السيرفر')
     .addChannelOption(option =>
       option.setName('روم')
         .setDescription('الروم اللي تبعت فيه (اختياري)')),
   async execute(interaction) {
-    const text = interaction.options.getString('القوانين');
     const channel = interaction.options.getChannel('روم');
 
     const embed = new EmbedBuilder()
-      .setDescription(text)
+      .setDescription(rules.join('\n'))
       .setColor(COLOR);
 
     if (channel) {
