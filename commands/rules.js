@@ -5,14 +5,14 @@ module.exports = {
     .setName('rules')
     .setDescription('يخليني أبعث أي شيء')
     .addStringOption(option =>
-      option.setName('النص')
+      option.setName('text')
         .setDescription('النص اللي تريدني أبعثه')
         .setRequired(true))
     .addChannelOption(option =>
       option.setName('روم')
         .setDescription('الروم اللي تبعت فيه (اختياري)')),
   async execute(interaction) {
-    const text = interaction.options.getString('النص');
+    const text = interaction.options.getString('text');
     const channel = interaction.options.getChannel('روم');
 
     if (channel) {
