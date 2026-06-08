@@ -15,7 +15,7 @@ module.exports = {
       option.setName('روم')
         .setDescription('الروم اللي تبعت فيه (اختياري)')),
   async execute(interaction) {
-    if (!requireAdmin(interaction)) return;
+    if (!(await requireAdmin(interaction))) return;
     const text = interaction.options.getString('القوانين');
     const channel = interaction.options.getChannel('روم');
 

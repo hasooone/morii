@@ -6,7 +6,7 @@ module.exports = {
     .setName('ping')
     .setDescription('يعرض سرعة الاتصال'),
   async execute(interaction) {
-    if (!requireAdmin(interaction)) return;
+    if (!(await requireAdmin(interaction))) return;
     const reply = await interaction.reply({
       content: 'قياس السرعة...',
       withResponse: true,

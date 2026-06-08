@@ -13,7 +13,7 @@ module.exports = {
       option.setName('روم')
         .setDescription('الروم اللي تبعت فيه (اختياري)')),
   async execute(interaction) {
-    if (!requireAdmin(interaction)) return;
+    if (!(await requireAdmin(interaction))) return;
     const message = interaction.options.getString('رسالة');
     const channel = interaction.options.getChannel('روم');
 
