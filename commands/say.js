@@ -1,5 +1,4 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const { requireAdmin } = require('../utils/permissions');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -13,7 +12,6 @@ module.exports = {
       option.setName('روم')
         .setDescription('الروم اللي تبعت فيه (اختياري)')),
   async execute(interaction) {
-    if (!(await requireAdmin(interaction))) return;
     const message = interaction.options.getString('رسالة');
     const channel = interaction.options.getChannel('روم');
 

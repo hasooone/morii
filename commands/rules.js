@@ -1,5 +1,4 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const { requireAdmin } = require('../utils/permissions');
 
 const COLOR = 0x0099FF;
 
@@ -15,7 +14,6 @@ module.exports = {
       option.setName('روم')
         .setDescription('الروم اللي تبعت فيه (اختياري)')),
   async execute(interaction) {
-    if (!(await requireAdmin(interaction))) return;
     const text = interaction.options.getString('القوانين');
     const channel = interaction.options.getChannel('روم');
 
