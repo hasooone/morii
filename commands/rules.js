@@ -1,7 +1,7 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const rules = require('../rules.json');
 
-const COLOR = 0xFFD700;
+const COLOR = '#FFD700';
 
 module.exports = {
   data: new SlashCommandBuilder()
